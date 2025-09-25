@@ -1,0 +1,20 @@
+on:
+  push:
+    branches:
+      - "main" # change to the branch you wish to deploy from
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - id: build-publish
+      uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
+      with:
+        install_command: cd frontend && npm install && ls
+        path: frontend/dist # default
+        build_command: npm run build && cd dist && ls && cd ../ # -- --base-href=/${{ github.event.repository.name }}/ # default
