@@ -61,7 +61,7 @@ export class SignalingService {
       
       try {
         // 连接到WebSocket服务器 (使用新的/ws端点)
-        const wsUrl = `ws://localhost:3000/ws?userId=${this.userId}`;
+        const wsUrl = `wss://web-rdp.cnss.eu.org/ws?userId=${this.userId}`;
         console.log(`Connecting to WebSocket server: ${wsUrl}`);
         this.socket = new WebSocket(wsUrl);
         
